@@ -5,7 +5,7 @@ const usersObj = require('../services/users.json');
 
 
 router.get("/", async (req, res) => {    
-    console.log(usersObj)
+    // console.log(usersObj)
     try{
         usersObj.forEach(async (e) => {
             await Users.findOrCreate({ //Ingresa los datos a la tabla si no existen
@@ -13,11 +13,10 @@ router.get("/", async (req, res) => {
              });
         });        
             const allUsers = await Users.findAll();   
-            console.log(allUsers)      
+            // console.log(allUsers)      
             res.status(200).json(allUsers);
     
-        }catch(e){
-            console.log(teachersObj) 
+        }catch(e){ 
             res.status(400).json({message: e})
         }     
 
