@@ -25,7 +25,9 @@ const Landing = () => {
           <Link to='/proffs'>
             <img src={btnEstudiar} alt="" />
           </Link>
+          <Link to='/register'>
           <img className="btnAulas" src={btnAulas} alt="" />
+          </Link>
         </div>
         <div className="secc4">
           <img src={conn285} alt="" />

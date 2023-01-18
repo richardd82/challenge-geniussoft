@@ -1,17 +1,17 @@
 .paginationContainer{
     width: 100%;
+    text-decoration: none;
     margin-top: 137%;
     position: relative;
     z-index: 10;
     height: fit-content;
     display: inline-flex;
     justify-content: center;
-    color: #F47D35 ;
+    color: #F47D35 !important;
     font-weight: bolder;
     text-shadow: 2px 2px 2px rgb(0 0 0 / 61%);
 }
-
-.paginationContainer ul{
+.paginationContainer ul {
     list-style-type: none;
 }
 .labelNumber{
@@ -22,6 +22,8 @@
     padding: 15px;
     font-size: 2.5em;
     transition: all .3s;
+    text-decoration: none;
+    color: #F47D35 !important;
 }
 .number:hover{
     transform: scale(1.5);

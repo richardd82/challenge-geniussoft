@@ -1,18 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllUsers } from "../../redux/actions/index";
+import {
+  getAllSchedules,
+  getAllSubjects,
+  getAllUsers
+} from "../../redux/actions/index";
 import "./proffs.css";
-import Filters from "../Filters/Filters";
+// import Filters from "../Filters/Filters";
 import Card from "../Card/Card";
 import Pagination from "../Pagination/Pagination";
+import Filters from "../Filters/Filters";
 
 const Proffs = () => {
   const dispatch = useDispatch();
   const allUsers = useSelector((state) => state.users);
-  const users = allUsers;
+  const allSubjects = useSelector((state) => state.subjects);
+  const allSchedules = useSelector((state) => state.schedules);
   useEffect(() => {
     dispatch(getAllUsers());
+    dispatch(getAllSubjects());
+    dispatch(getAllSchedules());
   }, [dispatch]);
+  console.log(allSchedules, "!Prrrooooffffssss!")
 
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage] = useState(5);
@@ -22,27 +31,30 @@ const Proffs = () => {
   const pager = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-  console.log(users);
+  // console.log(allUsers.slice(indexFirstCard, indexLastCard));
 
   return (
     <div className="proffsContainer">
       <div className="proffsTitle">Estos son los proffs disponibles.</div>
       <div className="proffsFilter">
-        <Filters />
+        <div className="filtersContainer">
+          <Filters allSubjects={allSubjects} allSchedules={allSchedules}/>
+        </div> 
       </div>
       <div className="proffsContainerCards">
-        {allCards?.map((post) => (
-          <div className="proffsCards" key={post.id}>
-            <Card post={post} />
-          </div>
-        ))}
+        {allCards &&
+          allCards?.map((post) => (
+            <div className="proffsCards" key={post.id}>
+              <Card post={post} />
+            </div>
+          ))}
       </div>
       <div className="paginationMain">
-          <Pagination 
-            cardsPerPage={cardsPerPage}
-            allCards={allUsers.length}
-            pager={pager}
-          />
+        <Pagination
+          cardsPerPage={cardsPerPage}
+          allCards={allUsers.length}
+          pager={pager}
+        />
       </div>
     </div>
   );

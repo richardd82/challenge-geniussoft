@@ -1,22 +1,47 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import "./filters.css";
-import { getAllSubjects, orderBySubject } from "../../redux/actions";
-const Filters = () => {
+import { getAllSchedules, getAllSubjects, orderBySubject, orderByHour } from "../../redux/actions";
+const Filters = ({allSubjects, allSchedules}) => {
   const dispatch = useDispatch();
-  let allSubjects = useSelector((state) => state.subjects);
-  console.log(allSubjects, "Suuubjeeeects");
+  const [filter, setFilter] = useState({
+    subjects: "Materia",
+    schedule: "Dia",
+    hour: "Horario"
+  });
+  console.log(allSchedules, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
 
   useEffect(() => {
     dispatch(getAllSubjects());
+    dispatch(getAllSchedules());
   }, [dispatch]);
 
   const handleSubject = (e) => {
+    console.log(e.subject)
     e.preventDefault();
-    dispatch(orderBySubject(e.target.value));
+    setFilter({
+      schedule:"Dia", hour:"Horario",
+      subjects: e.target.value
+    })    
+    return dispatch(orderBySubject(e.target.value));
   };
-  const handleDay = (e) => {};
-  const handleHour = (e) => {};
+  const handleDay = (e) => {
+    e.preventDefault();
+    setFilter({
+      subjects:"Materia", hour:"Horario",
+      schedule: e.target.value
+    })    
+    return dispatch(orderBySubject(e.target.value));
+  };
+  const handleHour = (e) => {
+    e.preventDefault();
+    setFilter({
+      subjects:"Materia", schedule:"Dia",
+      hour: e.target.value
+    })    
+    return dispatch(orderByHour(e.target.value));
+
+  };
 
   return (
     <div className="filtersContainer">
@@ -24,6 +49,7 @@ const Filters = () => {
         <select
           name=""
           id=""
+          value={filter.subjects}
           className="filterClass"
           defaultValue="Materia"
           onChange={(e) => handleSubject(e)}
@@ -32,6 +58,7 @@ const Filters = () => {
             Materia
           </option>
           {allSubjects?.map((e) => {
+            
             return (
             <option value={e.subject} key={e.id} >{e.subject}</option>
             )
@@ -41,26 +68,38 @@ const Filters = () => {
         <select
           name=""
           id=""
+          value={filter.schedule}
           className="filterClass"
+          defaultValue="Día"
           onChange={(e) => handleDay(e)}
         >
           <option value="" defaultValue>
             Dia de la semana
           </option>
-          <option value="test">test</option>
-          <option value="test 2">test 2</option>
+          {allSchedules?.map((e) => {
+            
+            return (
+            <option value={e.day === null ? "No hay nada" : e.day} key={e.id} >{e.day === null ? "No hay nada" : e.day}</option>
+            )
+          })}
         </select>
         <select
           name=""
           id=""
+          value={filter.hour}
           className="filterClass"
+          defaultValue="Horario"
           onChange={(e) => handleHour(e)}
         >
           <option value="Horario" defaultValue>
             Horario
           </option>
-          <option value="test">test</option>
-          <option value="test 2">test 2</option>
+          {allSchedules?.map((e) => {
+            
+            return (
+            <option value={`${e.from}`} key={e.id} >{e.from}-{e.still}</option>
+            )
+          })}
         </select>
       </form>
     </div>
