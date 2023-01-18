@@ -39,18 +39,18 @@
 }
 
 .commentCard {
-    color: #B6B6B6;
+    color: #858282;
     text-align: left;
-    margin-top: 5px;
+    margin-top: 57px;
     margin-left: 32px;
-    margin-bottom: 29px;
+    margin-bottom: 90px;
     width: 85%;
 }
 
 .buttomCard {
     display: flex;
     height: 13vh;
-    background: #FAFAFC;
+    background: #e8e8e8;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;

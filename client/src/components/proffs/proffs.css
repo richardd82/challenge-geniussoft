@@ -25,11 +25,12 @@
 }
 
 .proffsContainerCards {
-    position: sticky;
+    position: absolute;
     margin: auto;
-    top: 40vh;
-    height: 75vh;
+    top: 23.5vh;
+    height: 270vh;
     background: #E5E5E5;
+    width: 100%;
 }
 
 .proffsCards {
@@ -37,13 +38,9 @@
     width: 39.5%;
     height: 426px;
     left: 32%;
-    top: 285px;
-
-    /* Shapes / 01 */
-
+    top: 70px;
+    margin-bottom: 40px;
     background: #FFFFFF;
-    /* Back/Lines in white */
-
     border: 1px solid #F0EBE6;
     border-radius: 8px;
 }

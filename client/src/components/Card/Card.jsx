@@ -12,7 +12,7 @@ const Card = ({post}) => {
       </div>
       <div className="titleCard">
         <div className="nameCard">{post.name}</div>
-        <div className="profession">Química</div>
+        <div className="profession"> {post.subject.subject} </div>
       </div>
       </div>
       <div className="commentCard">
@@ -20,7 +20,7 @@ const Card = ({post}) => {
         
       </div>
       <div className="buttomCard">
-        <div className="priceCard">Precio/hora $ 20,00</div>
+        <div className="priceCard">Precio/hora $ {post.price.price}</div>
         <div className="btnContactCard">
           <img src={btnContact} alt="" className="btnGreen" />
         </div>
