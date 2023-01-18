@@ -35,14 +35,14 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 const { Users, Schedules, Subjects, Prices } = sequelize.models;
 
-Users.belongsToMany(Schedules, { through: "Users_Schedules" });
-Schedules.belongsToMany(Users, { through: "Users_Schedules" });
+Users.belongsTo(Schedules);
+Schedules.hasMany(Users);
 
 Users.belongsToMany(Subjects, { through: "Users_Subjects" });
 Subjects.belongsToMany(Users, { through: "Users_Subjects" });
 
-Users.belongsToMany(Prices, { through: "Users_Prices" });
-Prices.belongsToMany(Users, { through: "Users_Prices" });
+Users.belongsTo(Prices);
+Prices.hasMany(Users);
 
 
 module.exports = {
