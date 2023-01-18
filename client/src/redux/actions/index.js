@@ -5,6 +5,7 @@ export const GET_ALL_USERS = "GET_ALL_USERS";
 export const GET_ALL_SUBJECTS = "GET_ALL_SUBJECTS";
 export const GET_ALL_SCHEDULES = "GET_ALL_SCHEDULES";
 export const GET_ALL_PRICES = "GET_ALL_PRICES";
+export const ORDER_BY_SUBJECT = "ORDER_BY_SUBJECT";
 
 export function getAllUsers() {
   return async function (dispatch) {
@@ -22,15 +23,16 @@ export function getAllUsers() {
 }
 export function getAllSubjects() {
   return async function (dispatch) {
-    return axios
-      .get(`${REACT_APP_URL_BACK}/subjects`)
-      .then((response) => response)
-      .then((json) => {
-        dispatch({ type: GET_ALL_SUBJECTS, payload: json });
-      })
-      .catch((err) => {
-        dispatch({ type: GET_ALL_SUBJECTS, payload: err });
+    try {
+      var json = await axios.get(`http://localhost:3001/subjects`);
+      // console.log(json)
+      return dispatch({
+        type: GET_ALL_SUBJECTS,
+        payload: json.data,
       });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 export function getAllSchedules() {
@@ -57,5 +59,11 @@ export function getAllPrices() {
       .catch((err) => {
         dispatch({ type: GET_ALL_PRICES, payload: err });
       });
+  };
+}
+export function orderBySubject(payload) {
+  return {
+    type: ORDER_BY_SUBJECT,
+    payload,
   };
 }
