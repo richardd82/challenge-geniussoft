@@ -13,11 +13,11 @@ module.exports = (sequelize) => {
       allowNull: true,
     },
     from: {
-      type: DataTypes.TIME,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     still: {
-      type: DataTypes.TIME,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
   });

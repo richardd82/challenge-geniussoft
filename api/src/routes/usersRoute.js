@@ -1,5 +1,5 @@
 const Router = require("express");
-const { Users } = require("../db.js");
+const { Users, Prices, Schedules, Subjects } = require("../db.js");
 const { Op } = require("sequelize");
 const router = Router();
 const usersObj = require("../services/users.json");
@@ -15,10 +15,16 @@ router.get("/", async (req, res) => {
           comment: e.comment,
           photo: e.photo,
           phone: e.phone,
-        }, //donde el name sea cada una de las dietas del Array Local
+        },
       });
     });
-    const allUsers = await Users.findAll();
+    const allUsers = await Users.findAll({
+      include: [
+        { model: Prices, attributes: ["price"] },
+        { model: Schedules, attributes: ["day", "from", "still"] },
+        { model: Subjects, attributes: ["subject"] },
+      ],
+    });
     // console.log(allUsers)
     res.status(200).json(allUsers);
   } catch (e) {
@@ -42,6 +48,7 @@ router.post("/", async (req, res) => {
       // await newUser.setSubject(subjectId);
       await newUser.setPrice(priceId);
       await newUser.setSchedule(scheduleId);
+      await newUser.setSubject(subjectId);
       return res.status(200).json(newUser);
     } else {
       return res.json({ message: "El usuario ya existe" });

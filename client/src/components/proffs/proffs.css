@@ -33,7 +33,7 @@
 }
 
 .proffsCards {
-    position: absolute;
+    position: relative;
     width: 39.5%;
     height: 426px;
     left: 32%;

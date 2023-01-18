@@ -1,21 +1,23 @@
 import axios from "axios";
+// require('dotenv').config();
+const { REACT_APP_URL_BACK } = process.env;
 export const GET_ALL_USERS = "GET_ALL_USERS";
 export const GET_ALL_SUBJECTS = "GET_ALL_SUBJECTS";
 export const GET_ALL_SCHEDULES = "GET_ALL_SCHEDULES";
 export const GET_ALL_PRICES = "GET_ALL_PRICES";
-const { REACT_APP_URL_BACK } = process.env;
 
 export function getAllUsers() {
   return async function (dispatch) {
-    return axios
-      .get(`${REACT_APP_URL_BACK}/recipes`)
-      .then((response) => response)
-      .then((json) => {
-        dispatch({ type: GET_ALL_USERS, payload: json });
-      })
-      .catch((err) => {
-        dispatch({ type: GET_ALL_USERS, payload: err });
+    try {
+      var json = await axios.get(`http://localhost:3001/users`);
+      // console.log(json)
+      return dispatch({
+        type: GET_ALL_USERS,
+        payload: json.data,
       });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 export function getAllSubjects() {

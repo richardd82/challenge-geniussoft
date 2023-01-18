@@ -7,12 +7,13 @@ const initialState = {
     Prices: []
 }
 let state=[];
-const rootReducer = (state = initialState, (type, payload) =>{
-    switch(type){
+const rootReducer = (state = initialState, action) =>{
+    // console.log(action.type, "REDUCEEEER")
+    switch(action.type){
         case GET_ALL_USERS:
-            return{
+            return{                
                 ...state,
-                users: payload
+                users: action.payload
             }
             default:
                     return state;
@@ -20,5 +21,5 @@ const rootReducer = (state = initialState, (type, payload) =>{
     }
 
 
-})
+}
 export default rootReducer;

@@ -38,8 +38,8 @@ const { Users, Schedules, Subjects, Prices } = sequelize.models;
 Users.belongsTo(Schedules);
 Schedules.hasMany(Users);
 
-Users.belongsToMany(Subjects, { through: "Users_Subjects" });
-Subjects.belongsToMany(Users, { through: "Users_Subjects" });
+Users.belongsTo(Subjects);
+Subjects.hasMany(Users);
 
 Users.belongsTo(Prices);
 Prices.hasMany(Users);
