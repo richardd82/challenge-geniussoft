@@ -1,0 +1,49 @@
+.proffsContainer {
+    height: 100vh;
+    background: #606062;
+}
+
+.proffsTitle {
+    width: 335px;
+    height: 84px;
+    text-align: left;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    color: #FFFFFF;
+    position: absolute;
+    margin-left: 32%;
+    top: 40px;
+}
+
+.proffsFilter {
+    margin-top: 10%;
+    position: absolute;
+    z-index: 1;
+    margin-left: 32%;
+}
+
+.proffsContainerCards {
+    position: sticky;
+    margin: auto;
+    top: 40vh;
+    height: 75vh;
+    background: #E5E5E5;
+}
+
+.proffsCards {
+    position: absolute;
+    width: 39.5%;
+    height: 426px;
+    left: 32%;
+    top: 285px;
+
+    /* Shapes / 01 */
+
+    background: #FFFFFF;
+    /* Back/Lines in white */
+
+    border: 1px solid #F0EBE6;
+    border-radius: 8px;
+}
