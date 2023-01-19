@@ -1,6 +1,6 @@
 import axios from "axios";
 // require('dotenv').config();
-const { REACT_APP_URL_BACK } = process.env;
+// const { REACT_APP_URL_BACK } = process.env;
 export const GET_ALL_USERS = "GET_ALL_USERS";
 export const GET_ALL_SUBJECTS = "GET_ALL_SUBJECTS";
 export const GET_ALL_SCHEDULES = "GET_ALL_SCHEDULES";
