@@ -83,3 +83,8 @@ export function orderByHour(payload) {
     payload,
   };
 }
+export async function register(payload) {
+  const resp = await axios.post(`http://localhost:3000/users`, payload);
+  // console.log(resp);
+  return resp.data;
+}
