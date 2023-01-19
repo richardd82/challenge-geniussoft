@@ -7,6 +7,7 @@ import {
   getAllSubjects,
   getAllUsers,
   getAllPrices,
+  getAllDays
 } from "../../redux/actions/index";
 import Swal from "sweetalert2";
 import alertImg from "../../assets/register/Alert.png";
@@ -32,8 +33,9 @@ const Register = () => {
   const [errors, setErrors] = useState({});
   const allUsers = useSelector((state) => state.users);
   const allSubjects = useSelector((state) => state.subjects);
-  // const allSchedules = useSelector((state) => state.schedules);
+  const allSchedules = useSelector((state) => state.schedules);
   const allPrices = useSelector((state) => state.prices);
+  const allDays = useSelector((state) => state.days);
   const [input, setInput] = useState({
     name: "",
     comment: "",
@@ -42,12 +44,14 @@ const Register = () => {
     scheduleId: "",
     subjectId: "",
     priceId: "",
+    dayId: ""
   });
   useEffect(() => {
     dispatch(getAllUsers());
     dispatch(getAllSchedules());
     dispatch(getAllSubjects());
     dispatch(getAllPrices());
+    dispatch(getAllDays());
   }, [dispatch]);
   // console.log(allUsers, allSubjects, allSchedules);
   // console.log(allPrices);
@@ -68,7 +72,7 @@ const Register = () => {
     return n.phone;
   });
   // console.log(input.phone)
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (usersNames.includes(input.phone)) {
       Swal.fire({
@@ -88,9 +92,10 @@ const Register = () => {
         scheduleId: "",
         subjectId: "",
         priceId: "",
+        dayId: ""
       });
     } else {
-      register(input)      
+      dispatch( await register(input))
         .then((e) => {
           Swal.fire({
             title: "El usuario se creó correctamente",
@@ -177,10 +182,10 @@ const Register = () => {
               <h2>Sobre la clase</h2>
               <hr />
               <select
-                name="subject"
+                name="subjectId"
                 className="classSelect"
-                defaultValue={input.subjectId}
-                // onChange={(e) => handleChange(e)}
+                value={input.subjectId}
+                onChange={(e) => handleChange(e)}
                 placeholder="Selecciona la materia que deeseas enseñar"
                 required
               >
@@ -196,7 +201,7 @@ const Register = () => {
                 name="priceId"
                 className="classSelect"
                 type="text"
-                defaultValue={input.priceId}
+                value={input.priceId}
                 onChange={(e) => handleChange(e)}
                 placeholder="Costo de tu hora por lección (en $ MXN)"
                 required
@@ -221,42 +226,46 @@ const Register = () => {
                   name="scheduleId"
                   id=""
                   required
-                  defaultValue={input.scheduleId}
-                  // onChange={(e) => handleChange(e)}
+                  value={input.scheduleId}
+                  onChange={(e) => handleChange(e)}
                 >
-                  <option value="Lunes">Lunes</option>
-                  <option value="Martes">Martes</option>
-                  <option value="Miercoles">Miercoles</option>
-                  <option value="Jueves">Jueves</option>
-                  <option value="Viernes">Viernes</option>
+                  {allDays?.map((e) => {
+                  return (
+                    <option value={`${e.id}`} key={e.id}>
+                      {e.day}
+                    </option>
+                  );
+                })}
                 </select>
                 <select
                   name="scheduleId"
                   id="selectFrom"
                   required
-                  defaultValue={input.scheduleId}
-                  // onChange={(e) => handleChange(e)}
+                  value={input.scheduleId}
+                  onChange={(e) => handleChange(e)}
                 >
-                 
-                      <option value="9:00">9:00</option>
-                      <option value="10:00">10:00</option>
-                      <option value="11:00">11:00</option>
-                      <option value="12:00">12:00</option>
-                      <option value="13:00">13:00</option>
-                     
+                  {allSchedules?.map((e) => {
+                  return (
+                    <option value={`${e.id}`} key={e.id}>
+                      {e.from}
+                    </option>
+                  );
+                })}
                 </select>
                 <select
                   name="scheduleId"
                   id="selectStill"
                   required
-                  defaultValue={input.scheduleId}
-                  // onChange={(e) => handleChange(e)}
+                  value={input.scheduleId}
+                  onChange={(e) => handleChange(e)}
                 >
-                  <option value="10:00">10:00</option>
-                      <option value="11:00">11:00</option>
-                      <option value="12:00">12:00</option>
-                      <option value="13:00">13:00</option>
-                      <option value="14:00">14:00</option>
+                  {allSchedules?.map((e) => {                    
+                  return (
+                    <option value={`${e.id}`} key={e.id}>
+                      {e.still}
+                    </option>
+                  );
+                })}<option value="14:00">14:00</option>
                 </select>
               </div>
             </div>

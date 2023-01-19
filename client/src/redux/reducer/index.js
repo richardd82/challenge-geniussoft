@@ -1,4 +1,14 @@
-import { GET_ALL_PRICES, GET_ALL_SCHEDULES, GET_ALL_SUBJECTS, GET_ALL_USERS, ORDER_BY_SCHEDULE, ORDER_BY_SUBJECT, ORDER_BY_HOUR } from "../actions";
+import {
+  GET_ALL_PRICES,
+  GET_ALL_SCHEDULES,
+  GET_ALL_SUBJECTS,
+  GET_ALL_USERS,
+  ORDER_BY_SCHEDULE,
+  ORDER_BY_SUBJECT,
+  ORDER_BY_HOUR,
+  GET_ALL_DAYS,
+  ORDER_BY_DAY
+} from "../actions";
 
 const initialState = {
   users: [],
@@ -9,6 +19,8 @@ const initialState = {
   schedulesBak: [],
   prices: [],
   pricesBak: [],
+  days: [],
+  daysBak: []
 };
 const rootReducer = (state = initialState, action) => {
   // console.log(action.type, "REDUCEEEER")
@@ -37,20 +49,33 @@ const rootReducer = (state = initialState, action) => {
         prices: [...action.payload],
         pricesBak: [...action.payload],
       };
+    case GET_ALL_DAYS:
+      return {
+        ...state,
+        days: [...action.payload],
+        daysBak: [...action.payload],
+      };
     case ORDER_BY_SUBJECT:
       return {
         ...state,
-        users: state.usersBak.filter((e) => e.subject.subject === action.payload)
+        users: state.usersBak.filter(
+          (e) => e.subject.subject === action.payload
+        ),
       };
     case ORDER_BY_SCHEDULE:
       return {
         ...state,
-        users: state.usersBak.filter((e) => e.schedule.day === action.payload)
+        users: state.usersBak.filter((e) => e.schedule.day === action.payload),
       };
     case ORDER_BY_HOUR:
       return {
         ...state,
-        users: state.usersBak.filter((e) => e.schedule.from === action.payload)
+        users: state.usersBak.filter((e) => e.schedule.from === action.payload),
+      };
+    case ORDER_BY_DAY:
+      return {
+        ...state,
+        users: state.usersBak.filter((e) => e.day.day === action.payload),
       };
 
     default:

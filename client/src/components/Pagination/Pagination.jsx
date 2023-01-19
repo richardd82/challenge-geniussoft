@@ -10,13 +10,13 @@ const Pagination = ({ cardsPerPage, allCards, pager }) => {
   }
 
   return (
-    <div className="paginationContainer">
+    <div className="paginationContainer" >
       <ul>
         {pageNumbers &&
           pageNumbers.map((number) => (
-            <HashLink smooth to="#root" className="linkToUp">
+            <HashLink smooth to="#root" className="linkToUp" key={number}>
             {/* <a href="#root" id="#linkPag"> */}
-              <li className="number" key={number}>
+              <li className="number" >
                 <label className="labelNumber" onClick={() => pager(number)}>
                   {number}
                 </label>

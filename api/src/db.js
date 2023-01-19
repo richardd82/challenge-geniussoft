@@ -33,7 +33,7 @@ let capsEntries = entries.map((entry) => [
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Users, Schedules, Subjects, Prices } = sequelize.models;
+const { Users, Schedules, Subjects, Prices, Days } = sequelize.models;
 
 Users.belongsTo(Schedules);
 Schedules.hasMany(Users);
@@ -43,6 +43,9 @@ Subjects.hasMany(Users);
 
 Users.belongsTo(Prices);
 Prices.hasMany(Users);
+
+Users.belongsTo(Days);
+Days.hasMany(Users);
 
 
 module.exports = {

@@ -1,19 +1,14 @@
 const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   
-  sequelize.define('schedules', {
+  sequelize.define('days', {
     id:{
       type: DataTypes.INTEGER,
-      // defaultValue: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
       autoIncrement: true
     },
-    from: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    still: {
+    day: {
       type: DataTypes.TEXT,
       allowNull: false,
     },

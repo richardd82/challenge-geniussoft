@@ -7,7 +7,9 @@
         "createdAt": "2023-01-18T08:34:39.130Z",
         "updatedAt": "2023-01-18T08:34:39.130Z",
         "scheduleId": "1",
-        "priceId": "1"
+        "subjectId": "2",
+        "priceId": "1",
+        "dayId": "1"
     },
     {
         "name": "Emilia Ortiz",
@@ -17,7 +19,9 @@
         "createdAt": "2023-01-18T08:34:39.212Z",
         "updatedAt": "2023-01-18T08:34:39.212Z",
         "scheduleId": "1",
-        "priceId": "1"
+        "subjectId": "2",
+        "priceId": "1",
+        "dayId": "2"
     },
     {
         "name": "Noel Prado",
@@ -27,7 +31,9 @@
         "createdAt": "2023-01-18T08:34:39.214Z",
         "updatedAt": "2023-01-18T08:34:39.214Z",
         "scheduleId": "1",
-        "priceId": "1"
+        "subjectId": "2",
+        "priceId": "1",
+        "dayId": "3"
     },
     {
         "name": "Máximo Donoso",
@@ -37,7 +43,9 @@
         "createdAt": "2023-01-18T08:34:39.227Z",
         "updatedAt": "2023-01-18T08:34:39.227Z",
         "scheduleId": "1",
-        "priceId": "1"
+        "subjectId": "2",
+        "priceId": "1",
+        "dayId": "1"
     },
     {
         "name": "Claudio Agullo",
@@ -47,7 +55,9 @@
         "createdAt": "2023-01-18T08:34:39.228Z",
         "updatedAt": "2023-01-18T08:34:39.228Z",
         "scheduleId": "1",
-        "priceId": "1"
+        "subjectId": "2",
+        "priceId": "1",
+        "dayId": "4"
     },
     {
         "name": "Eulalia Alegria",
@@ -57,7 +67,9 @@
         "createdAt": "2023-01-18T08:34:39.222Z",
         "updatedAt": "2023-01-18T08:34:39.222Z",
         "scheduleId": "1",
-        "priceId": "1"
+        "subjectId": "2",
+        "priceId": "1",
+        "dayId": "5"
     },
     {
         "name": "Micaela Cuervo",
@@ -67,7 +79,9 @@
         "createdAt": "2023-01-18T08:34:39.232Z",
         "updatedAt": "2023-01-18T08:34:39.232Z",
         "scheduleId": "1",
-        "priceId": "1"
+        "subjectId": "2",
+        "priceId": "1",
+        "dayId": "2"
     },
     {
         "name": "Gabriel Canales",
@@ -77,7 +91,9 @@
         "createdAt": "2023-01-18T08:34:39.235Z",
         "updatedAt": "2023-01-18T08:34:39.235Z",
         "scheduleId": "1",
-        "priceId": "1"
+        "subjectId": "9",
+        "priceId": "1",
+        "dayId": "3"
     },
     {
         "name": "Rosalinda Carro",
@@ -87,7 +103,9 @@
         "createdAt": "2023-01-18T08:34:39.236Z",
         "updatedAt": "2023-01-18T08:34:39.236Z",
         "scheduleId": "1",
-        "priceId": "1"
+        "subjectId": "8",
+        "priceId": "1",
+        "dayId": "4"
     },
     {
         "name": "Armando Milla",
@@ -97,7 +115,9 @@
         "createdAt": "2023-01-18T08:34:39.237Z",
         "updatedAt": "2023-01-18T08:34:39.237Z",
         "scheduleId": "1",
-        "priceId": "1"
+        "subjectId": "7",
+        "priceId": "1",
+        "dayId": "5"
     },
     {
         "name": "Ricardo Díaz",
@@ -107,7 +127,9 @@
         "createdAt": "2023-01-18T08:32:32.500Z",
         "updatedAt": "2023-01-18T08:32:32.500Z",
         "scheduleId": "1",
-        "priceId": "1"
+        "subjectId": "6",
+        "priceId": "1",
+        "dayId": "1"
     },
     {
         "name": "Minerva Moontenegro",
@@ -117,7 +139,9 @@
         "createdAt": "2023-01-18T08:34:39.139Z",
         "updatedAt": "2023-01-18T08:34:39.139Z",
         "scheduleId": "1",
-        "priceId": "1"
+        "subjectId": "5",
+        "priceId": "1",
+        "dayId": "1"
     },
     {
         "name": "José Enrique Chacón",
@@ -127,7 +151,9 @@
         "createdAt": "2023-01-18T08:34:39.133Z",
         "updatedAt": "2023-01-18T08:34:39.133Z",
         "scheduleId": "1",
-        "priceId": "1"
+        "subjectId": "4",
+        "priceId": "1",
+        "dayId": "1"
     },
     {
         "name": "Arantxa Pacheco",
@@ -137,7 +163,9 @@
         "createdAt": "2023-01-18T08:34:39.215Z",
         "updatedAt": "2023-01-18T08:34:39.215Z",
         "scheduleId": "1",
-        "priceId": "1"
+        "subjectId": "3",
+        "priceId": "1",
+        "dayId": "1"
     },
     {
         "name": "Luz Olivera",
@@ -147,7 +175,9 @@
         "createdAt": "2023-01-18T08:34:39.225Z",
         "updatedAt": "2023-01-18T08:34:39.225Z",
         "scheduleId": "1",
-        "priceId": "1"
+        "subjectId": "2",
+        "priceId": "1",
+        "dayId": "1"
     },
     {
         "name": "Gaspar Moral",
@@ -157,6 +187,8 @@
         "createdAt": "2023-01-18T08:34:39.219Z",
         "updatedAt": "2023-01-18T08:34:39.219Z",
         "scheduleId": "1",
-        "priceId": "1"
+        "subjectId": "1",
+        "priceId": "1",
+        "dayId": "1"
     }
 ]

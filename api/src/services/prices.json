@@ -1,26 +1,26 @@
 [
     {    
-    "price": 50
+    "price": "50"
     },
     {    
-    "price": 100
+    "price": "100"
     },
     {    
-    "price": 150
+    "price": "150"
     },
     {    
-    "price": 200
+    "price": "200"
     },
     {    
-    "price": 250
+    "price": "250"
     },
     {    
-    "price": 300
+    "price": "300"
     },
     {    
-    "price": 350
+    "price": "350"
     },
     {    
-    "price": 400
+    "price": "400"
     }
     ]

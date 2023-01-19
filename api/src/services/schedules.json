@@ -1,46 +1,37 @@
 [
-    {
-        "day": "Lunes",
+    {        
         "from": "9:00",
         "still": "10:00"
     },
-    {
-        "day": "Lunes",
+    {        
         "from": "10:00",
         "still": "11:00"
     },
-    {
-        "day": "Lunes",
+    {        
         "from": "11:00",
         "still": "12:00"
     },
-    {
-        "day": "Lunes",
+    {        
         "from": "12:00",
         "still": "13:00"
     },
-    {
-        "day": "Lunes",
+    {        
         "from": "13:00",
         "still": "14:00"
     },
-    {
-        "day": "Lunes",
+    {        
         "from": "16:00",
         "still": "17:00"
     },
-    {
-        "day": "Lunes",
+    {        
         "from": "17:00",
         "still": "18:00"
     },
-    {
-        "day": "Lunes",
+    {        
         "from": "18:00",
         "still": "19:00"
     },
-    {
-        "day": "Lunes",
+    {        
         "from": "19:00",
         "still": "20:00"
     }

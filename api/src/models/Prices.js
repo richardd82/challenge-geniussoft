@@ -4,13 +4,12 @@ module.exports = (sequelize) => {
   sequelize.define('prices', {
     id:{
       type: DataTypes.INTEGER,
-      // defaultValue: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
       autoIncrement: true
     },    
     price: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
   },

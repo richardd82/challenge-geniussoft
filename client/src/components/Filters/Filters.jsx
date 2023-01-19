@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import "./filters.css";
-import { getAllSchedules, getAllSubjects, orderBySubject, orderByHour } from "../../redux/actions";
-const Filters = ({allSubjects, allSchedules}) => {
+import { getAllSchedules, getAllSubjects, getAllDays, orderBySubject, orderByHour, orderByDay } from "../../redux/actions";
+const Filters = ({allSubjects, allSchedules, allDays}) => {
   const dispatch = useDispatch();
   const [filter, setFilter] = useState({
     subjects: "Materia",
     schedule: "Dia",
     hour: "Horario"
   });
-  console.log(allSchedules, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
+  // console.log(getAllDays, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
 
   useEffect(() => {
     dispatch(getAllSubjects());
     dispatch(getAllSchedules());
+    dispatch(getAllDays());
   }, [dispatch]);
 
   const handleSubject = (e) => {
@@ -31,7 +32,7 @@ const Filters = ({allSubjects, allSchedules}) => {
       subjects:"Materia", hour:"Horario",
       schedule: e.target.value
     })    
-    return dispatch(orderBySubject(e.target.value));
+    return dispatch(orderByDay(e.target.value));
   };
   const handleHour = (e) => {
     e.preventDefault();
@@ -51,7 +52,6 @@ const Filters = ({allSubjects, allSchedules}) => {
           id=""
           value={filter.subjects}
           className="filterClass"
-          defaultValue="Materia"
           onChange={(e) => handleSubject(e)}
         >
           <option value="Materia" defaultValue>
@@ -70,16 +70,15 @@ const Filters = ({allSubjects, allSchedules}) => {
           id=""
           value={filter.schedule}
           className="filterClass"
-          defaultValue="Día"
           onChange={(e) => handleDay(e)}
         >
           <option value="" defaultValue>
             Dia de la semana
           </option>
-          {allSchedules?.map((e) => {
+          {allDays?.map((e) => {
             
             return (
-            <option value={e.day === null ? "No hay nada" : e.day} key={e.id} >{e.day === null ? "No hay nada" : e.day}</option>
+            <option value={e.day} key={e.id} >{e.day}</option>
             )
           })}
         </select>
@@ -88,7 +87,6 @@ const Filters = ({allSubjects, allSchedules}) => {
           id=""
           value={filter.hour}
           className="filterClass"
-          defaultValue="Horario"
           onChange={(e) => handleHour(e)}
         >
           <option value="Horario" defaultValue>

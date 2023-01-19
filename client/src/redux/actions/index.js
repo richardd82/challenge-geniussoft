@@ -8,6 +8,8 @@ export const GET_ALL_PRICES = "GET_ALL_PRICES";
 export const ORDER_BY_SUBJECT = "ORDER_BY_SUBJECT";
 export const ORDER_BY_SCHEDULE = "ORDER_BY_SCHEDULE";
 export const ORDER_BY_HOUR = "ORDER_BY_HOUR";
+export const GET_ALL_DAYS = "GET_ALL_DAYS";
+export const ORDER_BY_DAY = "ORDER_BY_DAY";
 
 export function getAllUsers() {
   return async function (dispatch) {
@@ -65,6 +67,20 @@ export function getAllPrices() {
     }
   };
 }
+export function getAllDays() {
+  return async function (dispatch) {
+    try {
+      var json = await axios.get(`http://localhost:3001/days`);
+      // console.log(json)
+      return dispatch({
+        type: GET_ALL_DAYS,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
 export function orderBySubject(payload) {
   return {
     type: ORDER_BY_SUBJECT,
@@ -80,6 +96,12 @@ export function orderBySchedule(payload) {
 export function orderByHour(payload) {
   return {
     type: ORDER_BY_HOUR,
+    payload,
+  };
+}
+export function orderByDay(payload) {
+  return {
+    type: ORDER_BY_DAY,
     payload,
   };
 }

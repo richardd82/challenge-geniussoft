@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getAllSchedules,
   getAllSubjects,
-  getAllUsers
+  getAllUsers,
+  getAllDays,
 } from "../../redux/actions/index";
 import "./proffs.css";
 // import Filters from "../Filters/Filters";
@@ -16,12 +17,15 @@ const Proffs = () => {
   const allUsers = useSelector((state) => state.users);
   const allSubjects = useSelector((state) => state.subjects);
   const allSchedules = useSelector((state) => state.schedules);
+  const allDays = useSelector((state) => state.days);
+
   useEffect(() => {
     dispatch(getAllUsers());
     dispatch(getAllSubjects());
     dispatch(getAllSchedules());
+    dispatch(getAllDays());
   }, [dispatch]);
-  console.log(allSchedules, "!Prrrooooffffssss!")
+  // console.log(allDays, "!Prrrooooffffssss!");
 
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage] = useState(5);
@@ -37,14 +41,18 @@ const Proffs = () => {
     <div className="proffsContainer">
       <div className="proffsTitle">Estos son los proffs disponibles.</div>
       <div className="proffsFilter">
-        <div className="filtersContainer">
-          <Filters allSubjects={allSubjects} allSchedules={allSchedules}/>
-        </div> 
+        <div className="filtersContainer" >
+          <Filters
+            allSubjects={allSubjects}
+            allSchedules={allSchedules}
+            allDays={allDays}
+          />
+        </div>
       </div>
       <div className="proffsContainerCards">
         {allCards &&
           allCards?.map((post) => (
-            <div className="proffsCards" >
+            <div className="proffsCards" key={post.id} >
               <Card post={post} />
             </div>
           ))}
@@ -54,6 +62,7 @@ const Proffs = () => {
           cardsPerPage={cardsPerPage}
           allCards={allUsers.length}
           pager={pager}
+          key={currentPage}
         />
       </div>
     </div>
