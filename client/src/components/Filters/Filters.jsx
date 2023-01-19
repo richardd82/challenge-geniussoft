@@ -18,7 +18,7 @@ const Filters = ({allSubjects, allSchedules, allDays, setCurrentPage}) => {
   }, [dispatch]);
 
   const handleSubject = (e) => {
-    console.log(e.subject)
+    // console.log(e.subject)
     e.preventDefault();
     setFilter({
       schedule:"Dia", hour:"Horario",

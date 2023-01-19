@@ -1,6 +1,6 @@
 import axios from "axios";
 // require('dotenv').config();
-// const { REACT_APP_URL_BACK } = process.env;
+const { REACT_APP_URL_BACK } = process.env;
 export const GET_ALL_USERS = "GET_ALL_USERS";
 export const GET_ALL_SUBJECTS = "GET_ALL_SUBJECTS";
 export const GET_ALL_SCHEDULES = "GET_ALL_SCHEDULES";
@@ -14,7 +14,7 @@ export const ORDER_BY_DAY = "ORDER_BY_DAY";
 export function getAllUsers() {
   return async function (dispatch) {
     try {
-      var json = await axios.get(`http://localhost:3001/users`);
+      var json = await axios.get(`${REACT_APP_URL_BACK}/users`);
       // console.log(json)
       return dispatch({
         type: GET_ALL_USERS,
@@ -28,7 +28,7 @@ export function getAllUsers() {
 export function getAllSubjects() {
   return async function (dispatch) {
     try {
-      var json = await axios.get(`http://localhost:3001/subjects`);
+      var json = await axios.get(`${REACT_APP_URL_BACK}/subjects`);
       // console.log(json)
       return dispatch({
         type: GET_ALL_SUBJECTS,
@@ -42,7 +42,7 @@ export function getAllSubjects() {
 export function getAllSchedules() {
   return async function (dispatch) {
     try {
-      var json = await axios.get(`http://localhost:3001/schedules`);
+      var json = await axios.get(`${REACT_APP_URL_BACK}/schedules`);
       // console.log(json)
       return dispatch({
         type: GET_ALL_SCHEDULES,
@@ -56,7 +56,7 @@ export function getAllSchedules() {
 export function getAllPrices() {
   return async function (dispatch) {
     try {
-      var json = await axios.get(`http://localhost:3001/prices`);
+      var json = await axios.get(`${REACT_APP_URL_BACK}/prices`);
       // console.log(json)
       return dispatch({
         type: GET_ALL_PRICES,
@@ -70,7 +70,7 @@ export function getAllPrices() {
 export function getAllDays() {
   return async function (dispatch) {
     try {
-      var json = await axios.get(`http://localhost:3001/days`);
+      var json = await axios.get(`${REACT_APP_URL_BACK}/days`);
       // console.log(json)
       return dispatch({
         type: GET_ALL_DAYS,
@@ -109,8 +109,8 @@ export function register(payload) {
   console.log(payload);
   return async function(){
     try {
-      const json = await axios.post(`http://localhost:3001/users`, payload);
-      console.log(json, "JJJJSSSSSOOOONNNN")
+      const json = await axios.post(`${REACT_APP_URL_BACK}/users`, payload);
+      // console.log(json, "JJJJSSSSSOOOONNNN")
       return json
       
     } catch (error) {

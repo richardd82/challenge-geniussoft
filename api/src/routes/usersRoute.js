@@ -1,6 +1,5 @@
 const Router = require("express");
 const { Users, Prices, Schedules, Subjects, Days } = require("../db.js");
-const { Op } = require("sequelize");
 const router = Router();
 const usersObj = require("../services/users.json");
 
