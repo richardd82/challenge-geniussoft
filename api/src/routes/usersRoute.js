@@ -39,27 +39,39 @@ router.post("/", async (req, res) => {
   try {
     const getAllUsers = await Users.findAll();
     // console.log(getAllUsers);
+    const price = await Prices.findByPk(priceId);
+    console.log("price")
+    const schedule = await Schedules.findByPk(scheduleId);
+    console.log("schedule")
+    const subject = await Subjects.findByPk(subjectId);
+    console.log("subject")
+    const day = await Days.findByPk(dayId);
+    console.log("day")
+
     const phoneWhatsapp = getAllUsers?.map((e) => e.phone);
     console.log(phoneWhatsapp);
     if (!phoneWhatsapp?.find((e) => e === phone)) {
-      const newUser = await Users.findOrCreate({
-        where: {
+      const newUser = await Users.create({
+        // where: {},
           name: name,
           comment: comment,
           photo: photo,
           phone: phone,
-          priceId: priceId,
-          scheduleId: scheduleId,
-          subjectId:subjectId,
-          dayId:dayId
-        },
+          // priceId: priceId,
+          // scheduleId: scheduleId,
+          // subjectId: subjectId,
+          // dayId: dayId,
+        
       });
-      // await newUser.setSubject(subjectId);
       console.log(newUser);
-      await newUser.setPrice(priceId);
-      await newUser.setSchedule(scheduleId);
-      await newUser.setSubject(subjectId);
-      await newUser.setDay(dayId);
+      // await price.setUser(newUser);
+      // await schedule.setUser(newUser);
+      // await subject.setUser(newUser);
+      // await day.setUser(newUser);
+      await newUser.setPrice(price);
+      await newUser.setSchedule(schedule);
+      await newUser.setSubject(subject);
+      await newUser.setDay(day);
       return res.status(200).json(newUser);
     } else {
       return res.json({ message: "El usuario ya existe" });

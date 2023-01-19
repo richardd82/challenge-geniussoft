@@ -46,6 +46,7 @@ const Proffs = () => {
             allSubjects={allSubjects}
             allSchedules={allSchedules}
             allDays={allDays}
+            setCurrentPage={setCurrentPage}
           />
         </div>
       </div>

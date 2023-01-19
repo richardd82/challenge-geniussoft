@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import "./filters.css";
 import { getAllSchedules, getAllSubjects, getAllDays, orderBySubject, orderByHour, orderByDay } from "../../redux/actions";
-const Filters = ({allSubjects, allSchedules, allDays}) => {
+const Filters = ({allSubjects, allSchedules, allDays, setCurrentPage}) => {
   const dispatch = useDispatch();
   const [filter, setFilter] = useState({
     subjects: "Materia",
@@ -24,6 +24,7 @@ const Filters = ({allSubjects, allSchedules, allDays}) => {
       schedule:"Dia", hour:"Horario",
       subjects: e.target.value
     })    
+    setCurrentPage(1)   
     return dispatch(orderBySubject(e.target.value));
   };
   const handleDay = (e) => {
@@ -31,7 +32,8 @@ const Filters = ({allSubjects, allSchedules, allDays}) => {
     setFilter({
       subjects:"Materia", hour:"Horario",
       schedule: e.target.value
-    })    
+    })
+    setCurrentPage(1)    
     return dispatch(orderByDay(e.target.value));
   };
   const handleHour = (e) => {
@@ -40,6 +42,7 @@ const Filters = ({allSubjects, allSchedules, allDays}) => {
       subjects:"Materia", schedule:"Dia",
       hour: e.target.value
     })    
+    setCurrentPage(1)   
     return dispatch(orderByHour(e.target.value));
 
   };

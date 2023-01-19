@@ -105,11 +105,16 @@ export function orderByDay(payload) {
     payload,
   };
 }
-export async function register(payload) {
+export function register(payload) {
   console.log(payload);
   return async function(){
-  const json = await axios.post(`http://localhost:3000/users`, payload);
-  console.log(json, "JJJJSSSSSOOOONNNN")
-  return json
+    try {
+      const json = await axios.post(`http://localhost:3001/users`, payload);
+      console.log(json, "JJJJSSSSSOOOONNNN")
+      return json
+      
+    } catch (error) {
+      console.log(error)
+    }
 }
 }

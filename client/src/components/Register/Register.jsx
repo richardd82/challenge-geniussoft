@@ -95,7 +95,7 @@ const Register = () => {
         dayId: ""
       });
     } else {
-      dispatch( await register(input))
+      dispatch( register(input))
         .then((e) => {
           Swal.fire({
             title: "El usuario se creó correctamente",
@@ -223,10 +223,10 @@ const Register = () => {
               </div>
               <div className="selectDate">
                 <select
-                  name="scheduleId"
+                  name="dayId"
                   id=""
                   required
-                  value={input.scheduleId}
+                  value={input.dayId}
                   onChange={(e) => handleChange(e)}
                 >
                   {allDays?.map((e) => {
