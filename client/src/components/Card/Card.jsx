@@ -6,7 +6,7 @@ const Card = ({post}) => {
   // console.log(post.name)
   return (
     <>
-        <div className="topCard">
+        <div className="topCard" key={post.id}>
       <div className="avatarCard">
         <img src={post.photo} alt="" />
       </div>

@@ -41,10 +41,13 @@
 .commentCard {
     color: #858282;
     text-align: left;
-    margin-top: 57px;
+    margin-top: 22px;
     margin-left: 32px;
-    margin-bottom: 90px;
+    margin-bottom: 24px;
     width: 85%;
+    min-height: 16.3vh;
+    max-height: 16.3vh;
+    overflow: overlay;
 }
 
 .buttomCard {

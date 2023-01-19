@@ -3,10 +3,11 @@ module.exports = (sequelize) => {
   
   sequelize.define('users', {
     id:{
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.INTEGER,
+      // defaultValue: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
+      autoIncrement: true
     },
     name: {
       type: DataTypes.TEXT,
@@ -24,6 +25,10 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-  });
+  },
+  {
+    timestamps: false,
+  }
+  );
 };
 

@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
     try{
         scheduleObj.forEach(async (e) => {
             await Schedules.findOrCreate({ //Ingresa los datos a la tabla si no existen
-                 where: {from: e.from, still: e.still} //donde el name sea cada una de las dietas del Array Local
+                 where: {day: e.day, from: e.from, still: e.still} //donde el name sea cada una de las dietas del Array Local
              });
         });        
             const allSchedules = await Schedules.findAll();   

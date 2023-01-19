@@ -32,29 +32,30 @@ router.get("/", async (req, res) => {
   }
 });
 router.post("/", async (req, res) => {
-  const { name, comment, photo, phone } = req.body;
+  let { name, comment, photo, phone, priceId, scheduleId, subjectId } = req.body;
   // console.log(name, comment, photo, phone);
   try {
     const getAllUsers = await Users.findAll();
+    // console.log(getAllUsers);
     const phoneWhatsapp = getAllUsers?.map((e) => e.phone);
-
+    console.log(phoneWhatsapp)
     if (!phoneWhatsapp?.find((e) => e === phone)) {
       const newUser = await Users.findOrCreate({
-        name,
-        comment,
-        photo,
-        phone,
+        where:  {name:name, 
+        comment, photo, phone },
       });
       // await newUser.setSubject(subjectId);
       await newUser.setPrice(priceId);
       await newUser.setSchedule(scheduleId);
-      await newUser.setSubject(subjectId);
+      await newUser.setSubject(subjectId);      
+      // console.log(newUser.__proto__);
       return res.status(200).json(newUser);
-    } else {
+    }     
+    else {
       return res.json({ message: "El usuario ya existe" });
     }
   } catch (e) {
-    console.log(e);
+    return res.status(400).json(e)
   }
 });
 module.exports = router;

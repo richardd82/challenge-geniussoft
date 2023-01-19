@@ -3,14 +3,19 @@ module.exports = (sequelize) => {
   
   sequelize.define('subjects', {
     id:{
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.INTEGER,
+      // defaultValue: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
+      autoIncrement: true
     },
     subject: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-  });
+  },
+  {
+    timestamps: false,
+  }
+  );
 };

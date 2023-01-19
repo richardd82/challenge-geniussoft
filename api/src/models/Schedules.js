@@ -3,14 +3,15 @@ module.exports = (sequelize) => {
   
   sequelize.define('schedules', {
     id:{
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.INTEGER,
+      // defaultValue: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
+      autoIncrement: true
     },
     day: {
-      type: DataTypes.ENUM('Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'),
-      allowNull: true,
+      type: DataTypes.TEXT,
+      allowNull: false,
     },
     from: {
       type: DataTypes.TEXT,
@@ -20,5 +21,9 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-  });
+  },
+  {
+    timestamps: false,
+  }
+  );
 };

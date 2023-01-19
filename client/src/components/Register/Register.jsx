@@ -32,7 +32,7 @@ const Register = () => {
   const [errors, setErrors] = useState({});
   const allUsers = useSelector((state) => state.users);
   const allSubjects = useSelector((state) => state.subjects);
-  const allSchedules = useSelector((state) => state.schedules);
+  // const allSchedules = useSelector((state) => state.schedules);
   const allPrices = useSelector((state) => state.prices);
   const [input, setInput] = useState({
     name: "",
@@ -62,10 +62,12 @@ const Register = () => {
         [e.target.name]: e.target.value,
       })
     );
+    console.log(input)
   };
   const usersNames = allUsers.map((n) => {
-    return n.username;
+    return n.phone;
   });
+  // console.log(input.phone)
   const handleSubmit = (e) => {
     e.preventDefault();
     if (usersNames.includes(input.phone)) {
@@ -76,11 +78,11 @@ const Register = () => {
         confirmButtonText: "Yes",
         icon: "info",
       }).then((result) => {
-        console.log(result);
+        // console.log(result)
       });
       setInput({
         name: "",
-        commente: "",
+        comment: "",
         photo: "",
         phone: "",
         scheduleId: "",
@@ -88,7 +90,7 @@ const Register = () => {
         priceId: "",
       });
     } else {
-      register(input)
+      register(input)      
         .then((e) => {
           Swal.fire({
             title: "El usuario se creó correctamente",
@@ -97,6 +99,7 @@ const Register = () => {
             confirmButtonText: "Yes",
             icon: "success",
           }).then((result) => {
+            console.log(result);
             if (result.isConfirmed) {
               navigate("/");
             }
@@ -110,7 +113,7 @@ const Register = () => {
             confirmButtonText: "Ok",
             icon: "error",
           }).then((result) => {
-            // console.log(result);
+            console.log(result);
           })
         );
     }
@@ -152,13 +155,13 @@ const Register = () => {
               />
               {errors.photo && <p className="errorRegister">{errors.photo}</p>}
               <input
-              name="phone"
+                name="phone"
                 type="text"
                 value={input.phone}
                 onChange={(e) => handleChange(e)}
                 placeholder="Whatsapp (Solamente números)"
-                />
-                {errors.phone && <p className="errorRegister">{errors.phone}</p>}
+              />
+              {errors.phone && <p className="errorRegister">{errors.phone}</p>}
               <textarea
                 name="comment"
                 id=""
@@ -174,10 +177,10 @@ const Register = () => {
               <h2>Sobre la clase</h2>
               <hr />
               <select
-              name="subject"
+                name="subject"
                 className="classSelect"
-                value={input.subject}
-                onChange={(e) => handleChange(e)}
+                defaultValue={input.subjectId}
+                // onChange={(e) => handleChange(e)}
                 placeholder="Selecciona la materia que deeseas enseñar"
                 required
               >
@@ -190,10 +193,10 @@ const Register = () => {
                 })}
               </select>
               <select
-              name="priceId"
+                name="priceId"
                 className="classSelect"
                 type="text"
-                value={input.priceId}
+                defaultValue={input.priceId}
                 onChange={(e) => handleChange(e)}
                 placeholder="Costo de tu hora por lección (en $ MXN)"
                 required
@@ -218,46 +221,42 @@ const Register = () => {
                   name="scheduleId"
                   id=""
                   required
-                  value={input.scheduleId}
-                  onChange={(e) => handleChange(e)}
+                  defaultValue={input.scheduleId}
+                  // onChange={(e) => handleChange(e)}
                 >
-                  {allSchedules?.map((e) => {
-                    return (
-                      <option value={`${e.id}`} key={e.id}>
-                        {e.day === null ? "No hay nada" : e.day}
-                      </option>
-                    );
-                  })}
+                  <option value="Lunes">Lunes</option>
+                  <option value="Martes">Martes</option>
+                  <option value="Miercoles">Miercoles</option>
+                  <option value="Jueves">Jueves</option>
+                  <option value="Viernes">Viernes</option>
                 </select>
                 <select
                   name="scheduleId"
                   id="selectFrom"
                   required
-                  value={input.scheduleId}
-                  onChange={(e) => handleChange(e)}
+                  defaultValue={input.scheduleId}
+                  // onChange={(e) => handleChange(e)}
                 >
-                 {allSchedules?.map((e) => {
-                    return (
-                      <option value={`${e.id}`} key={e.id}>
-                        {e.from}
-                      </option>
-                    );
-                  })}
+                 
+                      <option value="9:00">9:00</option>
+                      <option value="10:00">10:00</option>
+                      <option value="11:00">11:00</option>
+                      <option value="12:00">12:00</option>
+                      <option value="13:00">13:00</option>
+                     
                 </select>
                 <select
                   name="scheduleId"
                   id="selectStill"
                   required
-                  value={input.scheduleId}
-                  onChange={(e) => handleChange(e)}
+                  defaultValue={input.scheduleId}
+                  // onChange={(e) => handleChange(e)}
                 >
-                  {allSchedules?.map((e) => {
-                    return (
-                      <option value={`${e.id}`} key={e.id}>
-                        {e.still}
-                      </option>
-                    );
-                  })}
+                  <option value="10:00">10:00</option>
+                      <option value="11:00">11:00</option>
+                      <option value="12:00">12:00</option>
+                      <option value="13:00">13:00</option>
+                      <option value="14:00">14:00</option>
                 </select>
               </div>
             </div>

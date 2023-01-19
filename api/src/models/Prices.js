@@ -3,14 +3,19 @@ module.exports = (sequelize) => {
   
   sequelize.define('prices', {
     id:{
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.INTEGER,
+      // defaultValue: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
+      autoIncrement: true
     },    
     price: {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
-  });
+  },
+  {
+    timestamps: false,
+  }
+  );
 };

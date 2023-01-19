@@ -44,7 +44,7 @@ const Proffs = () => {
       <div className="proffsContainerCards">
         {allCards &&
           allCards?.map((post) => (
-            <div className="proffsCards" key={post.id}>
+            <div className="proffsCards" >
               <Card post={post} />
             </div>
           ))}
