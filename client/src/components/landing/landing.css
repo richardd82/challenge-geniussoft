@@ -1,0 +1,38 @@
+.landingContainer{
+    background: linear-gradient(237.34deg, #606062 17.05%, #4A4A4A 86.94%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+}
+.upLanding{
+    display: flex; 
+    align-items: center;
+}
+.secc1{
+    display: flex;
+    flex-direction: column;
+    transform: scale(.9);
+    padding-right: 10em;
+}
+.secc2{
+    display: flex;
+    flex-direction: column;
+}
+.buttomLanding{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 5%;
+}
+.secc3{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-right: 25em;
+}
+.btnAulas{
+    margin-left: 15px;
+}

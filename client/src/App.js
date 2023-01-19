@@ -1,8 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Landing from "./components/Landing/Landing.jsx";
-import Proffs from "./components/Proffs/Proffs.jsx";
-import Register from "./components/Register/Register";
+import Landing from "./components/landing/Landing.jsx";
+import Proffs from "./components/proffs/Proffs.jsx";
+import Register from "./components/register/Register";
 // import Card from "./components/Card/Card";
 
 function App() {

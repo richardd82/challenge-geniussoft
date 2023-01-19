@@ -1,0 +1,177 @@
+.registerContainer {
+    height: 40vh !important;
+}
+
+.registerTitle {
+    margin-left: 28% !important;
+}
+
+.primerPasoRegister {
+    display: block;
+    width: 250px;
+    text-align: left;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    color: #FFCDAF;
+}
+
+.containerRegister {
+    top: 368px !important;
+    height: 155vh !important;
+}
+
+.formContainer {
+    position: absolute;
+    top: -4%;
+    margin-left: 28%;
+    background: #FFFFFF;
+    width: 45%;
+    height: 1323px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #F0EBE6;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.formContainer hr {
+    position: absolute;
+    color: rgb(5, 5, 5);
+    z-index: 10;
+}
+
+.dataRegister {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-top: -20%;
+}
+
+.aboutClass {
+    margin-top: -50%;
+    width: 71%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-end;
+}
+.classSelect{
+    width: 608px !important;
+    height: 56px !important;
+    margin-bottom: 45px;
+}
+
+.horariosRegister {
+    width: 71%;
+    margin-top: -50%;
+    margin-bottom: -10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.titleHorarios {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.formRegister input {
+    width: 608px;
+    height: 56px;
+    left: 416px;
+    top: 466px;
+    background: #FAFAFC;
+    border: 1px solid #F0EBE6;
+    border-radius: 8px;
+    margin-bottom: 45px;
+    z-index: 99;
+}
+
+.formRegister textarea {
+    width: 608px;
+    height: 168px;
+    left: 416px;
+    top: 801px;
+    background: #FAFAFC;
+    border: 1px solid #F0EBE6;
+    border-radius: 8px;
+    font-family: unset;
+    color: rgb(102, 102, 102);
+}
+
+.formRegister textarea::placeholder {
+    font-family: 'Poppins';
+}
+
+.formRegister select {
+    width: 320px;
+    height: 56px;
+    left: 416px;
+    top: 1482px;
+    background: #FAFAFC;
+    border: 1px solid #F0EBE6;
+    border-radius: 8px;
+}
+
+#selectFrom {
+    width: 128px;
+    margin-left: 15px;
+}
+
+#selectStill {
+    width: 128px;
+    margin-left: 15px;
+}
+
+.buttomFormRegister {
+    position: absolute;
+    display: flex;
+    top: 87.5%;
+    margin-left: 28%;
+    z-index: 2;
+    width: 45.1%;
+    height: 136px;
+    background: #f9f4f4;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.contentButtom {
+    display: flex;
+}
+
+.imgAlert {
+    transform: scale(.3);
+    float: left;
+}
+
+.btnSaveRegister {
+    float: right;
+    width: 201px;
+    height: 56px;
+    left: 823px;
+    margin-top: 6%;
+    color: #FFFFFF;
+    background: #F47D35;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.btnSaveRegister:hover {
+    background: #DA5707;
+    transform: scale(.9);
+}
+
+.errorRegister{
+    margin-top: -40px;
+    color: #DA5707;
+}
