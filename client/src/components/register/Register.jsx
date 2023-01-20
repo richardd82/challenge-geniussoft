@@ -189,6 +189,7 @@ const Register = () => {
                 placeholder="Selecciona la materia que deeseas enseñar"
                 required
               >
+                <option default value="">Selecciona lo que deseas enseñar</option>
                 {allSubjects?.map((e) => {
                   return (
                     <option value={`${e.id}`} key={e.id}>
@@ -206,6 +207,7 @@ const Register = () => {
                 placeholder="Costo de tu hora por lección (en $ MXN)"
                 required
               >
+                <option default value="">Indica el costo p/hora</option>
                 {allPrices?.map((e) => {
                   return (
                     <option value={`${e.id}`} key={e.id}>
@@ -229,6 +231,7 @@ const Register = () => {
                   value={input.dayId}
                   onChange={(e) => handleChange(e)}
                 >
+                  <option default value="">Elige el día</option>
                   {allDays?.map((e) => {
                   return (
                     <option value={`${e.id}`} key={e.id}>
@@ -244,6 +247,7 @@ const Register = () => {
                   value={input.scheduleId}
                   onChange={(e) => handleChange(e)}
                 >
+                  <option default value="">Desde</option>
                   {allSchedules?.map((e) => {
                   return (
                     <option value={`${e.id}`} key={e.id}>
@@ -259,13 +263,14 @@ const Register = () => {
                   value={input.scheduleId}
                   onChange={(e) => handleChange(e)}
                 >
+                  <option default value="">Hasta</option>
                   {allSchedules?.map((e) => {                    
                   return (
                     <option value={`${e.id}`} key={e.id}>
                       {e.still}
                     </option>
                   );
-                })}<option value="14:00">14:00</option>
+                })}
                 </select>
               </div>
             </div>
