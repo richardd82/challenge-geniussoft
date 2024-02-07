@@ -8,9 +8,9 @@ import {
 } from "../../redux/actions/index";
 import "./proffs.css";
 // import Filters from "../Filters/Filters";
-import Card from "../card/Card";
-import Pagination from "../pagination/Pagination";
-import Filters from "../filters/Filters";
+import Card from "../Card/Card";
+import Pagination from "../Pagination/Pagination";
+import Filters from "../Filters/Filters";
 
 const Proffs = () => {
   const dispatch = useDispatch();
@@ -53,7 +53,7 @@ const Proffs = () => {
       <div className="proffsContainerCards">
         {allCards &&
           allCards?.map((post) => (
-            <div className="proffsCards" key={post.id} >
+            <div className="proffsCards" key={post?.id} >
               <Card post={post} />
             </div>
           ))}
